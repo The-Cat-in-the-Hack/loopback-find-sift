@@ -31,5 +31,17 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Album": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Artist": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Label": {
+    "dataSource": "db",
+    "public": true
   }
 }

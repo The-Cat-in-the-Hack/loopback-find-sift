@@ -1,0 +1,30 @@
+{
+  "name": "Album",
+  "plural": "Albums",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "artist": {
+      "type": "belongsTo",
+      "model": "Artist",
+      "foreignKey": ""
+    },
+    "label": {
+      "type": "belongsTo",
+      "model": "Label",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
