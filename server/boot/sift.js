@@ -1,5 +1,7 @@
 var loopbackUtils = require('loopback/lib/utils');
 var sift = require('sift');
+var paginate = require("node-paginate-anything");
+
 
 module.exports = function (app) {
 
@@ -62,7 +64,20 @@ module.exports = function (app) {
                   required: false,
                   description: "Optional options object, passed to find."
                 }
-              ]
+              ],
+              rest: {
+                after: function (ctx, cb) {
+
+                  // let node-paginate-anything do its thing with the req and res
+                  var slice_options = paginate(ctx.req, ctx.res, ctx.result.length, ctx.result.length);
+
+                  if (ctx.result.length > 0 && slice_options && slice_options.skip !== undefined &&
+                      slice_options.limit !== undefined) {
+                    ctx.result = ctx.result.slice(slice_options.skip, slice_options.skip + slice_options.limit);
+                  }
+                  cb();
+                }
+              }
             }
         );
 

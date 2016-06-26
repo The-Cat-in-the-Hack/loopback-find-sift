@@ -16,6 +16,7 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.4.0",
     "loopback-datasource-juggler": "^2.39.0",
+    "node-paginate-anything": "0.0.5",
     "serve-favicon": "^2.0.1",
     "sift": "^3.2.1"
   },
